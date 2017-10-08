@@ -8,9 +8,12 @@
     <form action="" method="post">
         <ul>
             {% for i in choice %}
-                <li><span>{{ i.title }}</span><input name="choice" type="radio"></li>
+                <li><span>{{ i.title }}</span>
+                    <input name="choice" type="radio">
+                </li>
             {% endfor %}
         </ul>
+        <input type="submit" value="투표하기">
     </form>
 </div>
 
