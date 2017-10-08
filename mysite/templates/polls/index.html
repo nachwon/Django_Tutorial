@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Poll main</h1>
+
+
+<div class="container">
+    <ul>
+    {% for i in question %}
+        <li>
+            <h2>
+                <a href="{% url 'detail' q_id=i.id %}">{{ i.title }}</a>
+            </h2>
+        </li>
+    {% endfor %}        
+        
+    </ul>
+</div>
+
+{% endblock %}

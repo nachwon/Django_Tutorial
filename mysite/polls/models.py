@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Question(models.Model):
     title = models.CharField(max_length=100)
     published_date = models.DateTimeField(blank=True, null=True)
@@ -13,5 +14,5 @@ class Choice(models.Model):
     title = models.CharField(max_length=50)
     vote = models.IntegerField(default=0)
 
-    def __str(self):
+    def __str__(self):
         return f'{self.title}: ({self.question.title})'
