@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{ question.title }}</h1>
+
+<h2>You have voted to {{ selected_choice.title }}</h2>
+<form action="{% url 'result' q_id=question.id %}" method="post">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-danger" value="Show result">
+    <input type="hidden" name="choice" value="{{ voted_choice }}">
+</form>
+{% endblock %}

@@ -5,15 +5,17 @@
 <h1>{{ question.title }}</h1>
 
 <div class="container">
-    <form action="" method="post">
+    <form action="{% url 'vote' q_id=question.id %}" method="post">
+        {% csrf_token %}
         <ul>
             {% for i in choice %}
                 <li><span>{{ i.title }}</span>
-                    <input name="choice" type="radio">
+                    <input name="choice" type="radio" value="{{ i.id }}">
                 </li>
             {% endfor %}
         </ul>
         <input type="submit" value="투표하기">
+        <p class="error">{{ error }}</p>
     </form>
 </div>
 

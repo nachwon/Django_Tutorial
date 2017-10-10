@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{ question.title }}</h1>
+
+{% for i in choice %}
+<p>{{ i.title }}: {{ i.vote }}</p>
+{% endfor %}
+
+<form action="{% url 'revote' q_id=question.id %}" method="post">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-danger" value="Revote">
+    <input type="hidden" name="choice" value="{{ voted_choice }}">
+</form>
+
+<a href="{% url 'index' %}"><button type="button" class="btn btn-primary">To Main</button></a>
+
+{% endblock %}
